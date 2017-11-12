@@ -170,6 +170,11 @@ let s:default_filetypes = {
       \ 'vue': [
       \   {
       \    'start':
+      \     '<template\%( [^>]*\)\? \%(lang="\%(\(\h\w*\)\)"\)\%( [^>]*\)\?>',
+      \    'end': '</template>', 'filetype': '\1',
+      \   },
+      \   {
+      \    'start':
       \     '<template\%( [^>]*\)\?>',
       \    'end': '</template>', 'filetype': 'html',
       \   },
@@ -450,7 +455,7 @@ function! s:replace_submatch(pattern, match_list)
     endif
   endfor
   return pattern
-endfunction 
+endfunction
 
 
 let s:null_pos = [0, 0]
